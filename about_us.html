@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - WAPARS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body, html {
+            scroll-behavior: smooth;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        nav .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            
+            color:white;
+        }
+        nav .menu a{
+            color:rgba(0,0,0,1);
+            text-decoration-line: none;
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav .logo img {
+            width: 30px;
+            height: 30px;
+        }
+        nav .actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        nav .actions button {
+            border: 1px solid black;
+            background: none;
+            border-radius: 24px;
+            font-weight: 600;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        nav .actions button:hover {
+            background: black;
+            color: white;
+        }
+        nav .actions svg {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            stroke: black;
+            fill: none;
+        }
+
+        /* Header Image with Text Overlay */
+        .header-banner {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('sustainability.png') center center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .header-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0,0,0,0.45);
+            z-index: 0;
+        }
+        .header-banner > div {
+            position: relative;
+            z-index: 1;
+        }
+        .header-banner h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .header-banner p {
+            font-weight: 400;
+            font-size: 14px;
+            color: #eee;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Main About Us Section */
+        .about-main {
+            display: flex;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+            justify-content: center;
+        }
+        .about-images {
+            display: flex;
+            gap: 10px;
+            flex-direction: row-reverse;
+        }
+        .about-images img {
+            border: 3px solid #1a5e25;
+            border-radius: 6px;
+            max-width: 250px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+        .about-images:nth-child(1) img {
+            margin-top: 40px;   /* adjust this value until it matches your design */
+        }
+        .about-content {
+            max-width: 450px;
+            gap: 10px;
+            margin:110px;
+            margin-left: 0px;
+        }
+        .about-content h2 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .about-content .stars {
+            color: #1a5e25;
+            margin-bottom: 16px;
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: 4px;
+        }
+        .about-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: #222;
+            margin-top:10px ;
+        }
+        .about-content p.strong {
+            font-weight: 900;
+            font-size: 13px;
+            margin-top: 12px;
+            margin-bottom: 20px;
+        }
+        .about-content button {
+            background-color: #1a5e25;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 13px;
+        }
+        .about-content button:hover {
+            background-color: #0f3a13;
+        }
+
+        /* Who We Are & History Section */
+        .history-section {
+            display: flex;
+            max-width: 1100px;
+            margin: 60px auto 80px;
+            padding: 0 20px;
+            gap: 40px;
+            justify-content: center;
+        }
+        .history-left {
+            flex: 1;
+            font-weight: 900;
+            font-size: 40px;
+            line-height: 1;
+            margin-top: 50px;
+            margin-left: 10px;
+        }
+       .history-right {
+            flex: 2;
+            display: flex;
+            gap: 30px;
+        }
+        
+       .history-right p {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-left: 20px;
+            color:rgba(26, 26, 26, 1);
+            padding-right: 20px;
+        
+        }
+        .history-right p:first-child {
+            border-right: 2px solid #ccc; /* light gray line */
+        }
+
+        /* Wavy green banner below history */
+        .wavy-banner {
+            background: rgba(0, 128, 0, 1);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 12px 20px;
+            text-align: just;
+            clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+            margin-bottom: 80px;
+            transform: rotate(-3.4deg);
+            margin-top: -10px;
+            
+        }
+      
+
+        /* Vision and Mission Section on dark background */
+        .vision-mission-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: -5px;
+            padding: 60px 10px;
+            background-color: #111;
+            color: #fff;
+        }
+
+        .vision-card, .mission-card {
+             background: #fff;
+             color: #111;
+             padding: 30px;
+             width: 300px;
+             border-radius: 0px;
+             text-align: center;
+             box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+             position: flex;
+             gap: 0px;
+             margin: 0px;
+        }
+        
+
+        .vision-image img {
+           max-width: 450px;
+           border-right: 0px solid #4CAF50; /* green border */
+           border-radius: 0px;
+           height: auto;
+        }
+
+/* Testimonials Section */
+         .testimonials {
+          background: #111;
+          color: #fff;
+          padding: 60px 20px;
+          text-align: center;
+        }
+
+       .testimonials h2 {
+        font-size: 48px;
+        margin-bottom: 50px;
+        margin-top: -40px;
+      }
+
+       .testimonials-cards {
+         display: flex;
+         justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+       }
+
+       .testimonial-card {
+         background: #222;
+         padding: 20px;
+         width: 500px;
+         border-radius: 10px;
+         text-align: left;
+          box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+       }
+
+       .testimonial-user {
+         margin-top: 25px;
+         display: flex;
+         align-items: center;
+          gap: 10px;
+         font-size: 14px;
+       }
+
+       .testimonial-user img {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+}
+
+        /* Footer Section */
+        footer {
+            background-color: #111;
+            color: #bbb;
+            font-size: 14px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            border-top: 1px solid #222;
+            margin-top: 5px;
+        }
+        footer .footer-section {
+            flex: 1 1 200px;
+        }
+        footer h3 {
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+            font-size: 16px;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 12px;
+        }
+        footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        footer ul li a:hover {
+            color: #1a5e25;
+        }
+        footer .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: 3px;
+        }
+        footer .footer-logo img {
+            width: 30px;
+            height: 30px;
+        }
+        footer .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        footer .social-icons a {
+            color: #bbb;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        footer .social-icons a:hover {
+            color: #1a5e25;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-main {
+                flex-direction: column;
+                align-items: center;
+            }
+            .history-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .vision-mission-section {
+                flex-direction: column;
+                padding-bottom: 40px;
+            }
+            .vision, .mission {
+                max-width: 100%;
+                margin-bottom: 40px;
+                padding: 20px;
+            }
+            .vision-mission-center-image {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                max-width: 100%;
+                border: none;
+                box-shadow: none;
+            }
+            .testimonials {
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                padding: 20px 0;
+            }
+        }
+       /* Responsive Media Queries */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .about-main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .history-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .vision-mission-section {
+    flex-direction: column;
+  }
+}
+
+/* Mobile / Tablet Menu */
+@media (max-width: 768px) {
+  nav .menu {
+    display: none;       /* Hide menu by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;           /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+  }
+  nav .menu.active {
+    display: flex;       /* Show menu when active */
+  }
+  .menu-toggle {
+    display: block;      /* Show hamburger button only on small screens */
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  nav .actions {
+    display: none;       /* Hide action buttons on small screens */
+  }
+
+  .about-images img { max-width: 200px; }
+  .testimonial-card { width: 100%; }
+  footer { flex-direction: column; gap: 30px; }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .header-banner h1 { font-size: 24px; }
+  .header-banner p { font-size: 12px; }
+  .vision-card, .mission-card { width: 100%; }
+  .vision-image img { max-width: 100%; }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu">
+            <a href="homepage.html">Home</a>
+            <a href="index.html">About us</a>
+            <a href="#">Shoes</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Reviews</a>
+        </div>
+        <div class="logo">
+            <img src="images/pav.png" alt="WAPARS Logo">
+            WAPARS
+        </div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+<div class="actions">
+</div>
+        <div class="actions">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M15.07 8.93A4 4 0 0112 16a4 4 0 01-3.07-7.07" stroke-width="2"/></svg>
+            <button>Let's connect</button>
+        </div>
+    </nav>
+
+    <section class="header-banner" aria-label="About Us Header">
+        <div>
+            
+            <h1>About Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="about-main" aria-label="About Us Main Section">
+            <div class="about-images">
+                <img src="images/Group 92.png" alt="Green hand with eco-icons">
+            </div>
+            <div class = "about-image">
+                <img src="images/Group 93.png" alt="Foot stepping on flowers">
+            </div>
+            <div class="about-content">
+                <h2>About Us</h2>
+                <div class="stars"><img src="images/Group 94.png" alt=""></div>
+                <p>Aliquet potenti facilisis integer impardiet sed a risus nam hac Varius a nisi ante fermentum aptent calss scelerisque.</p>
+                <p class="strong">Finibus posuere amet litora iacubus sodales porta tempus hendrerit blandit. Conectetur turpis faucibus netus quis dignissim litora est. Nisi Erat lobortis amet maga ligula malesuada posuere. Donec commodo magnis rutrum curabitur facilisis at.</p>
+                <button>Discover More</button>
+            </div>
+        </section>
+
+        <section class="history-section" aria-label="Who We Are and History">
+            <div class="history-left">Who We are &amp; <br> History</div>
+            <div class="history-right">
+                <p>Aliquet potenti facilisis integer impardiet sed a risus nam hac Varius a nisi ante fermentum aptent calss scelerisque. Finibus posuere amet litora iacubus sodales porta tempus hendrerit blandit. Conectetur turpis faucibus netus quis dignissim litora est. Nisi Erat lobortis amet maga ligula malesuada posuere. Donec commodo magnis rutrum curabitur facilisis at.</p>
+                <p>Aliquet potenti facilisis integer impardiet sed a risus nam hac Varius a nisi ante fermentum aptent calss scelerisque. Finibus posuere amet litora iacubus sodales porta tempus hendrerit blandit. Conectetur turpis faucibus netus quis dignissim litora est. Nisi Erat lobortis amet maga ligula malesuada posuere. Donec commodo magnis rutrum curabitur facilisis at.</p>
+            </div>
+        </section>
+
+        <section class="wavy-banner" aria-label="Decorative Banner">
+            <p>Lorem Ipsum is simply dummy text &nbsp; | &nbsp; Lorem Ipsum is simply dummy text &nbsp; | &nbsp; Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text &nbsp; | &nbsp; Lorem Ipsum is simply dummy text &nbsp; | &nbsp;</p>
+        </section>
+        <!--vision m ision-->
+        <section class="vision-mission-section">
+            <div class="vision-card">
+              <h2>Vision</h2>
+              <p>
+                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,  remaining essentially unchanged.  It was popularised in the 1960s with 
+              </p>
+            </div>
+
+           <div class="vision-image">
+               <img src="images/Group 95.png" alt="Vision Mission Image">
+           </div>
+
+           <div class="mission-card">
+              <h2>Mission</h2>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,  remaining essentially unchanged.  It was popularised in the 1960s with 
+                </p>
+            </div>
+        </section>
+
+          <!-- Testimonials Section -->
+        <section class="testimonials">
+           <h2>What They Say About <br> Our Service <img src="Group 94.png" alt=""></h2>
+           <div class="testimonials-cards">
+               <div class="testimonial-card">
+                   <p>
+                      Working with Tambank has been a testament to their
+                      exception expertise and commitment to eithical mining
+                      practices. Their team seamlessly blends technological
+                      innovation with environment responsibility, creating a
+                      mining experience the tonly delivers results but also
+                      contributes positively to the communities they operates in
+                   </p>
+                  <div class="testimonial-user">
+                       <img src="images/Group 42.png" alt="User">
+                       <span>Else verina⭐⭐⭐⭐⭐</span>
+                  </div>
+              </div>
+
+              <div class="testimonial-card">
+                  <p>
+                     Working with Tambank has been a testament to their
+                     exception expertise and commitment to eithical mining
+                     practices. Their team seamlessly blends technological
+                     innovation with environment responsibility, creating a
+                     mining experience the tonly delivers results but also
+                     contributes positively to the communities they operates in
+                  </p>
+                  <div class="testimonial-user">
+                     <img src="images/Group 42.png" alt="User">
+                     <span>Else Verina ⭐⭐⭐⭐⭐</span>
+                  </div>
+              </div>
+
+             <div class="testimonial-card">
+                   <p>
+                      Working with Tambank has been a testament to their exception expertise and 
+                      commitment to ethical mining practices...
+                  </p>
+                  <div class="testimonial-user">
+                      <img src="images/Group 42.png" alt="User">
+                      <span>Lisa Brown ⭐⭐⭐⭐⭐</span>
+                  </div>
+               </div>
+          </div>
+       </section>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="images/Group 81.png" alt="WAPARS Logo">
+                WAPARS
+            </div>
+            <p>Transforming West's plastic waste into stylish, eco-friendly shoes. Join us in our sustainable journey. Step forward with a greener footprint.</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-4.014 0-5.292 2.403-5.292 5.381v3.619z"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M4 3c0 1.105-.895 2-2 2s-2 .895-2 2v14c0 1.105.895 2 2 2h16c1.105 0 2-.895 2-2V5c0-1.105-.895-2-2-2H4zm2 14h-3v-9h3v9zm-1.5-10.268a1.75 1.75 0 11-.002-3.5 1.75 1.75 0 01.002 3.5zM20 17h-3v-4.5c0-2-.664-3-2.333-3-1.222 0-1.834.667-2.167 1.333V17h-3v-9h3v1.333c.406-.745 1.375-1.667 3-1.667 2.167 0 3.333 1.333 3.333 4.167V17z"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm10 3.5a1 1 0 110 2 1 1 0 010-2zm-5 2.5c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>QUICK LINKS</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Reviews</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>INFORMATION</h3>
+            <ul>
+                <li><a href="#">Track Your Order</a></li>
+                <li><a href="#">The Journey</a></li>
+                <li><a href="#">Why WAPARS</a></li>
+                <li><a href="#">Our Stores</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>GUIDES</h3>
+            <ul>
+                <li><a href="#">Schedule A Return / Exchange</a></li>
+                <li><a href="#">Shoe Care</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+          <div>
+               <hr>
+                <p class="A">2024 WAPARS Pvt.Ltd</p>
+          </div>
+          
+    </footer>
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+</script>
+</body>
+</html>
